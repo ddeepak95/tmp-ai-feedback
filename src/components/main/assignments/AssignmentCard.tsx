@@ -12,7 +12,7 @@ type AssignmentCardProps = {
 const Label = ({ children }: { children: React.ReactNode }) => {
   return (
     <Typography
-      sx={{ fontWeight: "500", color: grey[600] }}
+      sx={{ fontWeight: "400", color: grey[700] }}
       component="span"
       variant="body2"
       marginRight={1}
