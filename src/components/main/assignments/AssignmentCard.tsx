@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Paper, Box, Typography } from "@mui/material";
+import { Paper, Box, Typography, ButtonBase } from "@mui/material";
 import { grey } from "@mui/material/colors";
 
 type AssignmentCardProps = {
@@ -7,6 +7,7 @@ type AssignmentCardProps = {
   numberOfSubmittedAssignments: number;
   numberOfTotalAssignments: number;
   dueDate: Date;
+  onClick?: () => void;
 };
 
 const Label = ({ children }: { children: React.ReactNode }) => {
@@ -49,28 +50,32 @@ const AssignmentCard = ({
   numberOfSubmittedAssignments,
   numberOfTotalAssignments,
   dueDate,
+  onClick,
 }: AssignmentCardProps) => {
   return (
-    <Paper elevation={3}>
-      <Box padding={2}>
-        <Typography component="h2" variant="h6">
-          {assignmentTitle}
-        </Typography>
-        <Box sx={{ display: "flex" }}>
-          <Box marginRight={2}>
-            <Label>Submissions</Label>
-            <Info>
-              {numberOfSubmittedAssignments} out of {numberOfTotalAssignments}
-            </Info>
-          </Box>
-          <Box>
-            <Label>Due Date</Label>
-            <Info>{dateToString(dueDate)}</Info>
+    <ButtonBase sx={{ width: "100%" }} onClick={onClick}>
+      <Paper sx={{ width: "100%" }} elevation={3}>
+        <Box padding={2}>
+          <Typography component="h2" variant="h6" textAlign={"left"}>
+            {assignmentTitle}
+          </Typography>
+          <Box sx={{ display: "flex" }}>
+            <Box marginRight={2}>
+              <Label>Submissions</Label>
+              <Info>
+                {numberOfSubmittedAssignments} out of {numberOfTotalAssignments}
+              </Info>
+            </Box>
+            <Box>
+              <Label>Due Date</Label>
+              <Info>{dateToString(dueDate)}</Info>
+            </Box>
           </Box>
         </Box>
-      </Box>
-    </Paper>
+      </Paper>
+    </ButtonBase>
   );
 };
 
 export default AssignmentCard;
+export type { AssignmentCardProps };
