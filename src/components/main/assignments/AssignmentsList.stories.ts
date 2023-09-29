@@ -9,6 +9,7 @@ const meta: Meta<typeof AssignmentsList> = {
     backgrounds: {
       default: "light",
       values: [
+        { name: "white", value: "#ffffff" },
         { name: "light", value: grey[100] },
         { name: "dark", value: grey[900] },
       ],
@@ -25,15 +26,21 @@ export const Primary: Story = {
     assignments: [
       {
         assignmentTitle: "The Electoral College: Abolition or Retention?",
-        numberOfSubmittedAssignments: 3,
-        numberOfTotalAssignments: 5,
+        numberOfSubmittedAssignments: 13,
+        numberOfTotalAssignments: 15,
         dueDate: new Date("2023-10-31T23:59:59.000Z"),
       },
       {
         assignmentTitle: "The Constitution: A Living Document?",
-        numberOfSubmittedAssignments: 3,
-        numberOfTotalAssignments: 5,
-        dueDate: new Date("2023-10-31T23:59:59.000Z"),
+        numberOfSubmittedAssignments: 12,
+        numberOfTotalAssignments: 15,
+        dueDate: new Date("2023-10-20T23:59:59.000Z"),
+      },
+      {
+        assignmentTitle: "What is Democracy?",
+        numberOfSubmittedAssignments: 14,
+        numberOfTotalAssignments: 15,
+        dueDate: new Date("2023-10-10T23:59:59.000Z"),
       },
     ],
   },
