@@ -3,6 +3,8 @@ import { grey } from "@mui/material/colors";
 
 import AssignemtSubmissionsTable from "./AssignmentSubmissionsTable";
 
+import studentDetails from "./dummy-data/student-details.json";
+
 const meta: Meta<typeof AssignemtSubmissionsTable> = {
   component: AssignemtSubmissionsTable,
   parameters: {
@@ -21,34 +23,31 @@ const meta: Meta<typeof AssignemtSubmissionsTable> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+const data = studentDetails;
+
 export const Primary: Story = {
   args: {
-    data: [
-      {
-        studentName: "Bella Morena",
-        assignmentStatus: "Handed in",
-        aiFeedbackStatus: "Pending",
-      },
-      {
-        studentName: "Cameron Bauer",
-        assignmentStatus: "Not handed in",
-        aiFeedbackStatus: "Pending",
-      },
-      {
-        studentName: "Hattie Ayers",
-        assignmentStatus: "Handed in",
-        aiFeedbackStatus: "Pending",
-      },
-      {
-        studentName: "Josh Rocha",
-        assignmentStatus: "Handed in",
-        aiFeedbackStatus: "Pending",
-      },
-      {
-        studentName: "Kiara Goodwin",
-        assignmentStatus: "Handed in",
-        aiFeedbackStatus: "Pending",
-      },
-    ],
+    data: data,
+  },
+};
+
+export const Loading: Story = {
+  args: {
+    loading: true,
+    data: undefined,
+  },
+};
+
+export const Error: Story = {
+  args: {
+    loading: false,
+    data: undefined,
+  },
+};
+
+export const No_Students: Story = {
+  args: {
+    loading: false,
+    data: [],
   },
 };

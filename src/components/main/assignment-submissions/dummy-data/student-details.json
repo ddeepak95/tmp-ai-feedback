@@ -1,0 +1,22 @@
+[
+  {
+    "studentName": "Bella Morena",
+    "assignmentStatus": "Handed in"
+  },
+  {
+    "studentName": "Cameron Bauer",
+    "assignmentStatus": "Not handed in"
+  },
+  {
+    "studentName": "Hattie Ayers",
+    "assignmentStatus": "Handed in"
+  },
+  {
+    "studentName": "Josh Rocha",
+    "assignmentStatus": "Handed in"
+  },
+  {
+    "studentName": "Kiara Goodwin",
+    "assignmentStatus": "Handed in"
+  }
+]

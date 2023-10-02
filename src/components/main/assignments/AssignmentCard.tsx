@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Paper, Box, Typography, ButtonBase } from "@mui/material";
 import { grey } from "@mui/material/colors";
+import AssignmentInfo from "../general/AssignmentInfo";
 
 type AssignmentCardProps = {
   assignmentTitle: string;
@@ -59,18 +60,11 @@ const AssignmentCard = ({
           <Typography component="h2" variant="h6" textAlign={"left"}>
             {assignmentTitle}
           </Typography>
-          <Box sx={{ display: "flex" }}>
-            <Box marginRight={2}>
-              <Label>Submissions</Label>
-              <Info>
-                {numberOfSubmittedAssignments} out of {numberOfTotalAssignments}
-              </Info>
-            </Box>
-            <Box>
-              <Label>Due Date</Label>
-              <Info>{dateToString(dueDate)}</Info>
-            </Box>
-          </Box>
+          <AssignmentInfo
+            dueDate={dueDate}
+            numberOfSubmittedStudents={numberOfSubmittedAssignments}
+            numberOfTotalStudents={numberOfTotalAssignments}
+          />
         </Box>
       </Paper>
     </ButtonBase>
