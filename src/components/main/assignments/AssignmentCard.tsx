@@ -1,6 +1,4 @@
-import * as React from "react";
 import { Paper, Box, Typography, ButtonBase } from "@mui/material";
-import { grey } from "@mui/material/colors";
 import AssignmentInfo from "../general/AssignmentInfo";
 
 type AssignmentCardProps = {
@@ -10,41 +8,6 @@ type AssignmentCardProps = {
   dueDate: Date;
   onClick?: () => void;
 };
-
-const Label = ({ children }: { children: React.ReactNode }) => {
-  return (
-    <Typography
-      sx={{ fontWeight: "400", color: grey[700] }}
-      component="span"
-      variant="body2"
-      marginRight={1}
-    >
-      {children}
-    </Typography>
-  );
-};
-
-const Info = ({ children }: { children: React.ReactNode }) => {
-  return (
-    <Typography component="span" variant="body2">
-      {children}
-    </Typography>
-  );
-};
-
-function dateToString(date: Date) {
-  if (!date) {
-    return "N/A";
-  }
-  const options: Intl.DateTimeFormatOptions = {
-    year: "numeric",
-    month: "short",
-    day: "numeric",
-    hour: "2-digit",
-    minute: "2-digit",
-  };
-  return date.toLocaleString("en-US", options);
-}
 
 const AssignmentCard = ({
   assignmentTitle,
