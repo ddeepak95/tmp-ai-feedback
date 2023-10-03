@@ -7,10 +7,10 @@ const meta: Meta<typeof PDFViewer> = {
   component: PDFViewer,
   parameters: {
     backgrounds: {
-      default: "light",
+      default: "dark",
       values: [
         { name: "light", value: grey[100] },
-        { name: "dark", value: grey[900] },
+        { name: "dark", value: grey[600] },
       ],
     },
   },
@@ -21,5 +21,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
-  args: {},
+  args: {
+    pdfLink: "https://arxiv.org/pdf/quant-ph/0410100.pdf",
+  },
 };
