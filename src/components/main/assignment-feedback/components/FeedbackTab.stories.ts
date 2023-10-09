@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { grey } from "@mui/material/colors";
 
-import AssignmentSubmissionViewer from "./AssigmentSubmissionViewer";
+import FeedbackTab from "./FeedbackTab";
 
-const meta: Meta<typeof AssignmentSubmissionViewer> = {
-  component: AssignmentSubmissionViewer,
+const meta: Meta<typeof FeedbackTab> = {
+  component: FeedbackTab,
   parameters: {
     backgrounds: {
       default: "light",
@@ -20,9 +20,10 @@ const meta: Meta<typeof AssignmentSubmissionViewer> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Primary: Story = {
+export const FeedbackGenerated: Story = {
   args: {
-    pdfLink: "https://arxiv.org/pdf/quant-ph/0410100.pdf",
-    studentName: "John Doe",
+    feedbackText: "This is some feedback text",
+    feedbackGenerated: true,
+    feedbackGenerationInProgress: false,
   },
 };

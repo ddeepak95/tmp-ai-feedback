@@ -18,7 +18,7 @@ const PDFViewer = ({ pdfLink }: PDFViewerProps) => {
         <PdfLoader
           url={pdfLink}
           beforeLoad={
-            <Box textAlign={"center"}>
+            <Box marginTop={6} textAlign={"center"}>
               <CircularProgress />
             </Box>
           }
