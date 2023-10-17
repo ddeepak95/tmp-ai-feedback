@@ -7,19 +7,10 @@ type AssignmentListProps = {
   assignments: AssignmentCardProps[] | undefined | null;
 };
 
-const Title = () => {
-  return (
-    <Typography variant="h4" component={"h2"} marginBottom={2}>
-      Assignments
-    </Typography>
-  );
-};
-
 const AssignmentsList = ({ assignments }: AssignmentListProps) => {
   if (!assignments || assignments.length === 0 || assignments === null) {
     return (
       <Box>
-        <Title />
         <Typography
           textAlign={"center"}
           sx={{ color: grey[500] }}
@@ -33,16 +24,9 @@ const AssignmentsList = ({ assignments }: AssignmentListProps) => {
   }
   return (
     <Box>
-      <Title />
       {assignments.map((assignment, index) => (
-        <Box paddingBottom={2}>
-          <AssignmentCard
-            key={index}
-            {...assignment}
-            onClick={() => {
-              console.log(assignment.assignmentTitle);
-            }}
-          />
+        <Box paddingBottom={2} key={index}>
+          <AssignmentCard key={index} {...assignment} />
         </Box>
       ))}
     </Box>

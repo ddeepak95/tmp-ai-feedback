@@ -14,10 +14,13 @@ import { CurrentUser } from "./CurrentUser";
 import { useData } from "@microsoft/teamsfx-react";
 import { Deploy } from "./Deploy";
 import { Publish } from "./Publish";
-import { TeamsFxContext } from "../Context";
+import { TeamsFxContext } from "../../contexts/TeamsFxContext";
 import { app } from "@microsoft/teams-js";
 
-export function Welcome(props: { showFunction?: boolean; environment?: string }) {
+export function Welcome(props: {
+  showFunction?: boolean;
+  environment?: string;
+}) {
   const { showFunction, environment } = {
     showFunction: true,
     environment: window.location.hostname === "localhost" ? "local" : "azure",
@@ -51,9 +54,13 @@ export function Welcome(props: { showFunction?: boolean; environment?: string })
     <div className="welcome page">
       <div className="narrow page-padding">
         <Image src="hello.png" />
-        <h1 className="center">Congratulations{userName ? ", " + userName : ""}!</h1>
+        <h1 className="center">
+          Congratulations{userName ? ", " + userName : ""}!
+        </h1>
         {hubName && <p className="center">Your app is running in {hubName}</p>}
-        <p className="center">Your app is running in your {friendlyEnvironmentName}</p>
+        <p className="center">
+          Your app is running in your {friendlyEnvironmentName}
+        </p>
 
         <div className="tabList">
           <TabList selectedValue={selectedValue} onTabSelect={onTabSelect}>

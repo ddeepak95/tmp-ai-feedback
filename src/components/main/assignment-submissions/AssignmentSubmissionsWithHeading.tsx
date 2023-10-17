@@ -6,26 +6,18 @@ import ErrorInfo from "../general/ErrorInfo";
 type AssignmentSubmissionsPageContentProps = {
   assignmentName: string;
   dueDate: Date;
-  assignmentId: string;
   assignmentSubmissions: any;
   loading: boolean;
 };
 
 function countHandedIn(assignments: any[]) {
-  return assignments.filter(
-    (assignment) => assignment.assignmentStatus === "Handed in"
-  ).length;
+  return assignments.filter((assignment) => assignment.status === "submitted")
+    .length;
 }
 
 const AssignmentSubmissionsPageContent: React.FC<
   AssignmentSubmissionsPageContentProps
-> = ({
-  assignmentName,
-  assignmentId,
-  assignmentSubmissions,
-  dueDate,
-  loading,
-}) => {
+> = ({ assignmentName, assignmentSubmissions, dueDate, loading }) => {
   if (loading) {
     return (
       <Box textAlign={"center"}>

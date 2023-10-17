@@ -1,12 +1,12 @@
-import AssignmentSubmissionViewer from "./main/assignment-feedback/AssigmentSubmissionViewer";
+import AppWrapper from "./main/general/AppWrapper";
+import AIFeedbackApp from "./AIFeedbackApp";
 
 export default function Tab() {
   return (
     <div>
-      <AssignmentSubmissionViewer
-        pdfLink="https://arxiv.org/pdf/quant-ph/0410100.pdf"
-        studentName="Hello"
-      />
+      <AppWrapper>
+        <AIFeedbackApp />
+      </AppWrapper>
     </div>
   );
 }

@@ -16,9 +16,15 @@ import {
 import * as colors from "@mui/material/colors";
 import ErrorInfo from "../general/ErrorInfo";
 
+interface studentDetails {
+  displayName: string;
+  email: string;
+}
+
 interface DataRow {
-  studentName: string;
-  assignmentStatus: string;
+  studentDetails: studentDetails;
+  status: string;
+  id: string;
 }
 
 interface AssignmentSubmissionsTableProps {
@@ -46,7 +52,9 @@ const CustomTable = ({ data }: { data: DataRow[] }) => {
   const [search, setSearch] = useState<string>("");
 
   const filteredData = data.filter((row: DataRow) => {
-    return row.studentName.toLowerCase().includes(search.toLowerCase());
+    return row.studentDetails.displayName
+      .toLowerCase()
+      .includes(search.toLowerCase());
   });
 
   return (
@@ -76,9 +84,9 @@ const CustomTable = ({ data }: { data: DataRow[] }) => {
                   // Add your desired functionality here
                 }}
               >
-                <TableCell>{row.studentName}</TableCell>
+                <TableCell>{row.studentDetails.displayName}</TableCell>
                 <TableCell>
-                  <AssignmentStatus assignmentStatus={row.assignmentStatus} />
+                  <AssignmentStatus assignmentStatus={row.status} />
                 </TableCell>
               </TableRow>
             ))}

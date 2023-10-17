@@ -24,7 +24,6 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
-    assignmentId: "asdf",
     assignmentSubmissions: studentDetails,
     assignmentName: "The Election of 1800",
     dueDate: new Date("2021-10-31T23:59:59.000Z"),
@@ -33,7 +32,6 @@ export const Primary: Story = {
 
 export const No_Students: Story = {
   args: {
-    assignmentId: "no-students",
     assignmentName: "The Election of 1800",
     assignmentSubmissions: [],
   },
@@ -41,7 +39,6 @@ export const No_Students: Story = {
 
 export const Undefined_Return_Type: Story = {
   args: {
-    assignmentId: "undefined",
     assignmentSubmissions: undefined,
   },
 };

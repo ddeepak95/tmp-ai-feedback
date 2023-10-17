@@ -26,14 +26,18 @@ function dateToString(date: Date) {
   if (!date) {
     return "N/A";
   }
-  const options: Intl.DateTimeFormatOptions = {
-    year: "numeric",
+  let dateVar = new Date(date);
+
+  let formattedDate = dateVar.toLocaleString("en-US", {
     month: "short",
-    day: "numeric",
+    day: "2-digit",
+    year: "numeric",
     hour: "2-digit",
     minute: "2-digit",
-  };
-  return date.toLocaleString("en-US", options);
+    hour12: true,
+  });
+
+  return formattedDate;
 }
 
 type AssignmentInfoProps = {

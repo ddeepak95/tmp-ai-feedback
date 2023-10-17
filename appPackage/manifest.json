@@ -5,7 +5,7 @@
   "id": "${{TEAMS_APP_ID}}",
   "packageName": "com.microsoft.teams.extension",
   "developer": {
-    "name": "Teams App, Inc.",
+    "name": "Dora Demszsky Lab",
     "websiteUrl": "${{TAB_ENDPOINT}}",
     "privacyUrl": "${{TAB_ENDPOINT}}/index.html#/privacy",
     "termsOfUseUrl": "${{TAB_ENDPOINT}}/index.html#/termsofuse"
@@ -15,8 +15,8 @@
     "outline": "outline.png"
   },
   "name": {
-    "short": "AI Feedback-${{TEAMSFX_ENV}}",
-    "full": "Full name for AI Feedback"
+    "short": "Teach M-Powered-${{TEAMSFX_ENV}}",
+    "full": "Teach M-Powered AI Feedback"
   },
   "description": {
     "short": "Short description of AI Feedback",
@@ -29,7 +29,7 @@
   "staticTabs": [
     {
       "entityId": "index",
-      "name": "Personal Tab",
+      "name": "AI Feedback",
       "contentUrl": "${{TAB_ENDPOINT}}/index.html#/tab",
       "websiteUrl": "${{TAB_ENDPOINT}}/index.html#/tab",
       "scopes": ["team"]
