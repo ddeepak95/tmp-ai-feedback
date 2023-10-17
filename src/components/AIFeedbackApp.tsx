@@ -12,6 +12,7 @@ import { useDocumentData } from "react-firebase-hooks/firestore";
 import { TeamsFxContext } from "../contexts/TeamsFxContext";
 import { UserDetailsContext } from "../contexts/UserDetailsContext";
 import { app } from "@microsoft/teams-js";
+import { AssignmentsListingContext } from "../contexts/AssignmentsListingContext";
 
 const getTeamsUserInfo = async (): Promise<app.Context | null> => {
   const context = await microsoftTeams.app.getContext();
@@ -19,10 +20,11 @@ const getTeamsUserInfo = async (): Promise<app.Context | null> => {
 };
 export default function App() {
   const userCredentials = useContext(UserCredentialsContext);
-
+  const [loading, setLoading] = useState<boolean>(true);
   const { teamsUserCredential } = useContext(TeamsFxContext);
   const userDetailsContext = useContext(UserDetailsContext);
   const { userDetails, setUserDetails } = userDetailsContext ?? {};
+  const { assignments } = useContext(AssignmentsListingContext);
 
   const [isUserAuthenticated, setIsUserAuthenticated] =
     useState<boolean>(false);
@@ -45,7 +47,14 @@ export default function App() {
   }, []);
 
   useEffect(() => {
+    if (assignments.length > 0) {
+      setLoading(false);
+    }
+  }, [assignments]);
+
+  useEffect(() => {
     if (!userDoc || !teamsUserCredential) {
+      setLoading(false);
       return;
     }
     async function getToken() {
@@ -64,6 +73,8 @@ export default function App() {
       if (token && token.token !== undefined) {
         setAccessToken(token.token);
         setIsUserAuthenticated(true);
+      } else {
+        setLoading(false);
       }
     }
     getToken();
@@ -73,7 +84,6 @@ export default function App() {
     const fetchTeamsUserInfo = async () => {
       if (isUserAuthenticated) {
         const userContextInfo = await getTeamsUserInfo();
-
         setContextInfo(userContextInfo);
       }
     };
@@ -97,10 +107,11 @@ export default function App() {
         tenantId: userCredentials.tenantId,
         accessToken: accessToken !== undefined ? accessToken : "",
       });
+      setLoading(false);
     }
   }, [contextInfo, accessToken, userCredentials, userDetails, setUserDetails]);
 
-  if (loadingUserDoc) {
+  if (loading) {
     return <Loading />;
   }
   if (
@@ -121,5 +132,5 @@ export default function App() {
   if (errorUserDoc) {
     return <ErrorInfo />;
   }
-  return <ErrorInfo />;
+  return <Loading />;
 }

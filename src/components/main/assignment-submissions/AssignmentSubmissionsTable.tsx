@@ -15,6 +15,7 @@ import {
 } from "@mui/material";
 import * as colors from "@mui/material/colors";
 import ErrorInfo from "../general/ErrorInfo";
+import { useParams, useNavigate } from "react-router-dom";
 
 interface studentDetails {
   displayName: string;
@@ -49,7 +50,10 @@ const AssignmentStatus = ({
 };
 
 const CustomTable = ({ data }: { data: DataRow[] }) => {
+  const params = useParams<{ assignmentId: string }>();
+  const assignmentId = params.assignmentId;
   const [search, setSearch] = useState<string>("");
+  const navigate = useNavigate();
 
   const filteredData = data.filter((row: DataRow) => {
     return row.studentDetails.displayName
@@ -76,12 +80,11 @@ const CustomTable = ({ data }: { data: DataRow[] }) => {
           <TableBody>
             {filteredData.map((row: DataRow, index) => (
               <TableRow
-                key={index}
                 sx={{ cursor: "pointer" }}
+                key={index}
                 hover
                 onClick={() => {
-                  console.log("Row clicked:", row);
-                  // Add your desired functionality here
+                  navigate(`/assignment/${assignmentId}/${row.id}`);
                 }}
               >
                 <TableCell>{row.studentDetails.displayName}</TableCell>

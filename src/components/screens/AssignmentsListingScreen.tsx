@@ -74,7 +74,7 @@ const AssignmentsListingScreen = () => {
     };
 
     fetchAssignments();
-  }, [userDetailsContext]);
+  }, [userDetailsContext, assignments, setAssignments]);
 
   if (loading) {
     return <Loading />;
@@ -86,7 +86,7 @@ const AssignmentsListingScreen = () => {
 
   return (
     <div>
-      <h1>Assignments Listing</h1>
+      <h1>Assignments</h1>
       <AssignmentsList assignments={assignments} />
     </div>
   );

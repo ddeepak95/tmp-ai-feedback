@@ -15,6 +15,7 @@ import Loading from "./main/general/Loading";
 import AssignmentsDetailsScreen from "./screens/AssignmentDetailsScreen";
 import { AssignmentsListingContext } from "../contexts/AssignmentsListingContext";
 import { AssignmentCardProps } from "./main/assignments/AssignmentCard";
+import SingleAssignmentSubmissionScreen from "./screens/SingleAssignmentSubmissionScreen";
 import { UserDetailsContext } from "../contexts/UserDetailsContext";
 
 /**
@@ -45,6 +46,10 @@ export default function App() {
                 <Route
                   path="/assignment/:assignmentId"
                   element={<AssignmentsDetailsScreen />}
+                />
+                <Route
+                  path="/assignment/:assignmentId/:submissionId"
+                  element={<SingleAssignmentSubmissionScreen />}
                 />
                 <Route path="*" element={<Navigate to={"/tab"} />}></Route>
               </Routes>
